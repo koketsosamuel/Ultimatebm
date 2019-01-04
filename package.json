@@ -1,0 +1,16 @@
+{
+  "name": "ubm",
+  "version": "1.0.0",
+  "description": "a proffesional tool for busineess management",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koketso Samuel Maotomabe",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.16"
+  }
+}
