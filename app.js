@@ -14,9 +14,14 @@ mongoose.connect(config.dbString, {
 // MIDDLEWARE SETUP
 app.use(bodyParser.json())
 
-// CUSTOMERE ROUTE SETUP
+// CUSTOMER ROUTE SETUP
 const customerRoutes = require('./routes/customerRoutes')
 app.use('/api/customers', customerRoutes)
+
+// PAYMENT ROUTE SETUP
+const paymentRoutes = require('./routes/paymentRoutes')
+app.use('/api/pay', paymentRoutes)
+
 
 // LISTEN
 app.listen(config.port)

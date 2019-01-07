@@ -1,20 +1,11 @@
 const mongoose = require('mongoose')
 
-// DATE FORMATTING
-let d = new Date(Date.now())
-
-let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
-let month = months[d.getMonth()]
-
-let dateString = `${d.getDate()} ${month} ${d.getFullYear()}`
-
-
 // PAYMENT RECORD SCHEMA
 let paymentRecordSchema = mongoose.Schema({
+    
     recorded: {
-        type: String,
-        default: dateString
+        type: Date,
+        default: Date.now
     },
 
     amount: {
@@ -27,20 +18,13 @@ let paymentRecordSchema = mongoose.Schema({
         required: true
     },
 
-    dateOfPayment: {
-        type: String,
-        required: true
-    },
-
-
     balanceAfterPayment: {
         type: Number,
         required: true
     },
 
     recordedBy: {
-        type: String,
-        required: true
+        type: String
     }
 })
 
@@ -111,8 +95,8 @@ let customerSchema = mongoose.Schema({
     },
 
     registered: {
-        type: String,
-        default: dateString
+        type: Date,
+        default: Date.now
     }
 })
 

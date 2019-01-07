@@ -3,7 +3,6 @@ const router = express.Router()
 const customerController = require('../controllers/customerController')
 
 
-
 // GET ALL CUSTOMERS
 router.get('/', customerController.getCustomers)
 
@@ -18,8 +17,6 @@ router.put('/:id', customerController.updateCustomer)
 
 // DELETE CUSTOMER
 router.delete('/:id', customerController.deleteCustomer)
-
-router.post('/pay', customerController.pay)
 
 
 // MODULE EXPORT
