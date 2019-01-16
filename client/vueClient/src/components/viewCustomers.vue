@@ -3,20 +3,26 @@
 
         <h1 class="float-left">Customers&nbsp;<div class="badge badge-primary">{{boys.length}}</div></h1>
         
-        <div class="btn-group float-right">
-            <button class="btn btn-lg btn-primary disabled">Per Page</button>
-            <button class="btn btn-lg btn-secondary" id="sortBy" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-arrow-down"></i></button>
-            <div class="dropdown-menu" aria-labelledby="sortBy">
-                <a class="dropdown-item" href="#">Name</a>
-                <a class="dropdown-item" href="#">Age</a>
-                <a class="dropdown-item" href="#">Date Registered</a>
-
-            </div>
-        </div>
+        <select name="" id="" class="form-control float-right d-inline selectForm mt-2">
+            <option value="all">all</option>
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+        </select>
 
         <div class="clearfix"></div>
+        <div class="list-group-action mb-4">
+          <a class="list-group-item bg-dark text-white" v-for="boy in boys" v-bind:key="boy">
+            {{boy}}
 
-        <div class="alert alert-primary" v-for="boy in boys" v-bind:key="boy">{{boy}}</div>
+            <div class="btn-group float-right">
+              <button class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i></button>
+              <button class="btn btn-sm btn-warning"><i class="fas fa-credit-card"></i></button>
+            </div>
+          
+          </a>
+
+          
+        </div>  
 
         <nav>
         <ul class="pagination">
@@ -56,9 +62,9 @@
 
 <script>
 export default {
-    data: function (){
-        return {
-            boys: ['matt', 'dan', 'led', 'nobody', 'chad', 'joe', 'vince', 'oscar', 'sphiwe', 'liser']
+    computed: {
+        boys(){
+            return this.$store.state.boys
         }
     }
 }
@@ -67,5 +73,9 @@ export default {
 <style>
     .page-link {
         border-radius: 0!important;
+    }
+
+    .selectForm {
+        width : 100px!important
     }
 </style>

@@ -13,7 +13,7 @@
                     </div>
                     <div class="mr-5">Customers</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="javascript:void(0)" @click="changeComponent('viewCustomers')">
                     <span class="float-left">Go</span>
                     <span class="float-right">
                         <i class="fas fa-angle-right"></i>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="mr-5">Payments</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="javascript:void(0)" @click="changeComponent('viewPayments')">
                     <span class="float-left">Go</span>
                     <span class="float-right">
                         <i class="fas fa-angle-right"></i>
@@ -43,11 +43,11 @@
                 <div class="card text-white bg-success o-hidden h-100">
                     <div class="card-body">
                     <div class="card-body-icon">
-                        <i class="fas fa-fw fa-chart-area"></i>
+                        <i class="fas fa-box"></i>
                     </div>
-                    <div class="mr-5">Statistics</div>
+                    <div class="mr-5">Services</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="javascript:void(0)" @click="component = 'statistics'">
                     <span class="float-left">Go</span>
                     <span class="float-right">
                         <i class="fas fa-angle-right"></i>
@@ -62,7 +62,19 @@
 
 <script>
 export default {
+    name: 'dashboard',
     
+    computed: {
+        component() {
+            return this.$store.state.component
+        }
+    },
+
+  methods: {
+    changeComponent: function(amount) {
+      this.$store.dispatch('changeComponent', amount)
+    }
+  }
 }
 </script>
 
@@ -70,8 +82,8 @@ export default {
     .card-body-icon {
         position: absolute;
         z-index: 0;
-        top: -1.25rem;
-        right: -1rem;
+        top: -1rem;
+        right: 1rem;
         opacity: 0.4;
         font-size: 5rem;
         -webkit-transform: rotate(15deg);
