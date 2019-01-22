@@ -61,9 +61,15 @@
           </a>
         
         
-          <a href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>&nbsp;Statistics</span>
+          <a href="javascript: void(0)" class="list-group-item">
+            <i class="fas fa-fw fa-box"></i>
+            <span>&nbsp;Services</span>
+            
+            <div id="serviceSubMenu">
+              <a href="javascript: void(0)" class="dropdown-item" @click="changeComponent('viewServices')">View Services</a>
+              <a href="javascript: void(0)" class="dropdown-item" @click="changeComponent('addService')">Add Service</a>
+            </div>
+
           </a>
         
       </ul>
@@ -83,18 +89,31 @@
 </template>
 
 <script>
+
 import addCustomer from './components/addCustomer.vue'
 import viewCustomers from './components/viewCustomers'
 import dashboard from './components/dashboard'
 import customerPaymentRecords from './components/customerPaymentRecords'
 import makePayment from './components/makePayment'
 import viewPayments from './components/viewPayments'
+import addService from './components/addService'
+import viewServices from './components/viewServices'
+import viewCustomer from './components/viewCustomer'
 
 export default {
   name: 'app',
 
   components: {
-    addCustomer, viewCustomers, dashboard, customerPaymentRecords, makePayment, viewPayments
+    addCustomer,
+    viewCustomers,
+    dashboard,
+    customerPaymentRecords,
+    makePayment,
+    viewPayments,
+    addService,
+    viewServices,
+    viewCustomer
+
   },
 
   computed: {
@@ -104,8 +123,8 @@ export default {
   },
 
   methods: {
-    changeComponent: function(amount) {
-      this.$store.dispatch('changeComponent', amount)
+    changeComponent: function(payload) {
+      this.$store.dispatch('changeComponent', payload)
     }
   }
 

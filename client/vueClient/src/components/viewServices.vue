@@ -1,12 +1,12 @@
 <template>
     <div>
 
-        <h1 class="float-left">Customers&nbsp;<div class="badge badge-primary">{{boys.length}}</div></h1>
+        <h1 class="float-left">Services/Products</h1>
         
         <select name="" id="" class="form-control float-right d-inline selectForm mt-2">
             <option value="all">all</option>
-            <option value="active">active</option>
-            <option value="inactive">inactive</option>
+            <option value="active">services</option>
+            <option value="inactive">products</option>
         </select>
 
         <div class="clearfix"></div>
@@ -14,9 +14,9 @@
           <a class="list-group-item bg-dark text-white" v-for="boy in boys" v-bind:key="boy">
             {{boy}}
 
-            <div class="btn-group float-right">
-              <button class="btn btn-sm btn-primary" @click="changeComponent('viewCustomer')"><i class="fas fa-info-circle"></i></button>
-              <button class="btn btn-sm btn-warning"><i class="fas fa-credit-card"></i></button>
+            <div class="btn-group float-right m-0 p-0">
+              <button class="btn btn-sm btn-success"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i></button>
             </div>
           
           </a>
@@ -62,19 +62,11 @@
 
 <script>
 export default {
-
     computed: {
-        boys(){
-            return this.$store.state.boys
-        }
-    },
-
-    methods: {
-        changeComponent: function(payload) {
-            this.$store.dispatch('changeComponent', payload)
-        }
+      boys(){
+        return this.$store.state.boys
+      }
     }
-
 }
 </script>
 

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: cround;
+  src: url('./vendor/CoarseRounded.otf');
+}
+
+h1 {
+  font-family: cround;
+}

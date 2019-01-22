@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
 
     state: {
         component: 'dashboard',
-        boys: ['matt', 'dan', 'led', 'nobody', 'chad', 'joe', 'vince', 'oscar', 'sphiwe', 'liser']
+        boys: ['matt', 'dan', 'led', 'nobody', 'chad', 'joe', 'vince', 'oscar', 'sphiwe', 'liser', 'uel']
     },
 
     mutations: {
